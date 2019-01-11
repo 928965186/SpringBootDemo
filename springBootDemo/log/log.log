@@ -1,0 +1,6 @@
+2019-01-11 13:59:49.311  INFO 8484 --- [restartedMain] com.test.SpringBootDemoApplication       : Starting SpringBootDemoApplication on apple with PID 8484 (F:\gitLocal\springBootDemo\target\classes started by john in F:\gitLocal\springBootDemo)
+2019-01-11 13:59:49.323  INFO 8484 --- [restartedMain] com.test.SpringBootDemoApplication       : The following profiles are active: dev
+2019-01-11 13:59:51.276  INFO 8484 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-01-11 13:59:51.874  INFO 8484 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-01-11 13:59:52.640  INFO 8484 --- [restartedMain] com.test.SpringBootDemoApplication       : Started SpringBootDemoApplication in 3.947 seconds (JVM running for 5.303)
+2019-01-11 14:01:11.644  INFO 8484 --- [RMI TCP Connection(2)-127.0.0.1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

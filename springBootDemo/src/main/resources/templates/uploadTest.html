@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="../static/js/jquery-2.1.4.min.js"></script>
+<title>上传测试</title>
+</head>
+<body>
+
+<!--涉及文件上传，这里就需要multipart/form-data-->
+    <form enctype="multipart/form-data" method="post" action="/upload">
+        表单文件上传:<input type="file" name="head_img"/>
+        <input type="submit" value="上传" />
+       </form> 
+
+
+Ajax文件上传:<input id="cert" type="file" />
+<input type="button" value="上传" onclick="submit2();" />
+
+<script type="text/javascript">
+function submit2(){
+    var type = "file";          //后台接收时需要的参数名称，自定义即可
+    var id = "cert";            //即input的id，用来寻找值
+    var formData = new FormData();
+    formData.append(type, $("#"+id)[0].files[0]);    //生成一对表单属性
+    var img=$('#'+id).val().length;
+    if(img>0){
+    	$.ajax({
+          	 type: "POST",           //因为是传输文件，所以必须是post
+               url: '/upload2',         //对应的后台处理类的地址
+               data: formData,
+               dataType : "json",
+               processData: false,
+               contentType: false,
+      		success : function(data) {
+      			alert(data.msg);
+      		},
+      		error : function(XMLHttpRequest, textStatus) {
+      			 alert("上传失败!") 
+      		}
+      	})
+        }else{
+				alert("请选择文件后重试")
+            }
+        	
+}
+
+</script>
+
+</body>
+</html>

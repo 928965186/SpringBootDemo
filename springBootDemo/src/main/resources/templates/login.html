@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="../static/cat.ico">
+<script type="text/javascript" src="../static/js/jquery-2.1.4.min.js"></script>
+<title>登录页面</title>
+</head>
+<body>
+<input type="text" id="username"></input><br>
+<input type="password" id="password"></input><br>
+<button type="button" id="submit" onclick="submit()">登录</button>
+<button type="button" id="reset" onclick="reset()">重置</button>
+
+<script type="text/javascript">
+	function submit(){
+		var username=$("#username").val();
+		var password=$("#password").val();
+		$.ajax({
+			url : "login.do",
+			type : "POST",
+			data:"username="+username+"&password="+password,
+			dataType : "json",
+			success : function(data) {
+				if(username==""||password==""){
+					alert("账号或密码为空")
+					}else
+				if(data.msg=1){
+					alert("登录成功")
+					window.location.href='index';
+					}
+			},
+			error : function(XMLHttpRequest, statusText) {
+				alert("登录失败!")
+				
+			}
+		})
+	}
+
+	function reset(){
+		$("#username").val("");
+		$("#password").val("");
+	}
+	</script>
+</body>
+</html>
